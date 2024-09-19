@@ -20,4 +20,4 @@ _ spring-boot:run -f pom.xml
 
 ## Autores ✒️
 
-* **Ramón Carmona Quintero** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
+* **Ramón Carmona Quintero** - *Trabajo Inicial*
