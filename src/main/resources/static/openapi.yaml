@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Inditex API
+  description: |-
+    A simple API that allows one operations:
+    - get price list
+  version: 0.0.1-SNAPSHOT
+servers:
+  - url: http://localhost:8080
+
+tags:
+  - name: prices
+    description: Operations between prices
+
+paths:
+  /price:
+    post:
+      tags:
+        - findPrice
+      summary: Get price information
+      description: Get price information using product id, brand id and startDate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productId:
+                  type: number
+                brandId:
+                  type: number
+                startDate:
+                  type: string
+                  format: timestamp
+              required:
+                - type
+                - brandId
+                - startDate
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceAggregate'
+        204:
+          description: Price not found
+
+components:
+  schemas:
+    Price:
+      type: object
+      properties:
+        productId:
+          type: number
+        price:
+          type: number
+        priceList:
+          type: number
+        startDate:
+          type: number
+        endDate:
+          type: string
+          format: date
+    Brand:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+    PriceAggregate:
+      type: object
+      properties:
+        price:
+          $ref: '#/components/schemas/Price'
+        brand:
+          $ref: '#/components/schemas/Brand'
+

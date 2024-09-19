@@ -1,0 +1,22 @@
+spring:
+  jackson.serialization.write_dates_as_timestamps: false
+  datasource:
+    url: jdbc:h2:mem:inditexDb
+    username: inditex
+    password: inditex
+    driverClassName: org.h2.Driver
+  jpa:
+    hibernate.ddl-auto: validate
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+  h2:
+    console:
+      enabled: true
+      path: /inditex-db
+
+springdoc:
+    swagger-ui:
+      url: /openapi.yaml
