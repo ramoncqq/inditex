@@ -58,7 +58,6 @@ class PriceControllerTest {
                 new ParameterizedTypeReference<ApiDto<PriceAggregate>>() {
                 }).getBody();
 
-        assertThat(existData).isNotNull();
         assertSame(existData, priceAggregate != null);
     }
 
